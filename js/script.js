@@ -3,6 +3,7 @@ var winner;
 var selectedPlayer = document.getElementById('selected-player');
 var selectedWinner = document.getElementById('selected-winner');
 var squares = document.getElementsByClassName('square');
+const color = '#01baef'; 
 
 const chooseSquare = (id) => {
 	let square = document.getElementById(id);
@@ -52,9 +53,9 @@ const changeWinner = (square) => {
 }
 
 const changeSquareColor = (square1, square2, square3) => {
-	square1.style.backgroundColor = '#0f0';
-	square2.style.backgroundColor = '#0f0';
-	square3.style.backgroundColor = '#0f0';
+	square1.style.backgroundColor = color;
+	square2.style.backgroundColor = color;
+	square3.style.backgroundColor = color;
 }
 
 const checkSequence = (square1, square2, square3) => {
