@@ -41,7 +41,7 @@ const checkWinner = () => {
 		if (checkSequence(square1, square2, square3)) {
 			changeSquareColor(square1, square2, square3);
 			changeWinner(square1);
-			return;
+			break;
 		}
 	}
 }
@@ -62,11 +62,23 @@ const checkSequence = (square1, square2, square3) => {
 
 	if (square1.innerHTML !== '-' 
 			&& square1.innerHTML === square2.innerHTML
-			&& square2.innerHTML === square3.innerHTML) {
+			&& square2.innerHTML === square3.innerHTML
+			&& !winner) {
 		isEqual = true;
 	}
 
 	return isEqual;
+}
+
+const reinit = () => {
+	winner = null;
+	selectedWinner = null;
+
+	for(let square of squares) {
+		square.style.backgroundColor = '#eee';
+		square.style.color = '#eee';
+		square.innerHTML = '-';
+	}
 }
 
 changePlayer('x');
