@@ -3,19 +3,21 @@ var winner;
 var selectedPlayer = document.getElementById('selected-player');
 var selectedWinner = document.getElementById('selected-winner');
 var squares = document.getElementsByClassName('square');
-const color = '#01baef'; 
+const winnerColor = '#01baef'; 
+const cardColor = '#15616D';
+const letterColor = '#FFECD1';
 
 const chooseSquare = (id) => {
 	let square = document.getElementById(id);
 	if (square.innerHTML !== '-') return;
 
 	square.innerHTML = player;
-	square.style.color = '#121212';
+	square.style.color = letterColor;
 
-	if (player === 'x') {
-		player = 'o';
+	if (player === 'X') {
+		player = 'O';
 	} else {
-		player = 'x';
+		player = 'X';
 	}
 
 	changePlayer(player);
@@ -53,9 +55,9 @@ const changeWinner = (square) => {
 }
 
 const changeSquareColor = (square1, square2, square3) => {
-	square1.style.backgroundColor = color;
-	square2.style.backgroundColor = color;
-	square3.style.backgroundColor = color;
+	square1.style.backgroundColor = winnerColor;
+	square2.style.backgroundColor = winnerColor;
+	square3.style.backgroundColor = winnerColor;
 }
 
 const checkSequence = (square1, square2, square3) => {
@@ -73,13 +75,13 @@ const checkSequence = (square1, square2, square3) => {
 
 const reinit = () => {
 	winner = null;
-	selectedWinner = null;
+	selectedWinner.innerHTML = null;
 
 	for(let square of squares) {
-		square.style.backgroundColor = '#eee';
-		square.style.color = '#eee';
+		square.style.backgroundColor = cardColor;
+		square.style.color = cardColor;
 		square.innerHTML = '-';
 	}
 }
 
-changePlayer('x');
+changePlayer('X');
